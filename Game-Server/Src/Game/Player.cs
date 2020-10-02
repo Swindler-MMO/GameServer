@@ -42,7 +42,7 @@ namespace Swindler.GameServer.Game
 		{
 			Position = pos;
 			HasMoved = true;
-			$"Is at position: {pos}".Log(this);
+			//$"Is at position: {pos}".Log(this);
 		}
 
 		public void InteractResource(PlayerInteractResourcePacket p)
