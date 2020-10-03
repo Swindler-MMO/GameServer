@@ -39,6 +39,11 @@ namespace Swindler.GameServer
 			GameManager.GameServer.Broadcast(new ResourceRespawnPacket(_minedNodes.Dequeue()));
 		}
 
+		public static ResourceNodeData[] List()
+		{
+			return _minedNodes.ToArray();
+		}
+
 	}
 	
 	public class ResourceNodeData
