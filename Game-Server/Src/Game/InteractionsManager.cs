@@ -24,7 +24,7 @@ namespace Game_Server.Game
 
 		public void InteractResource(Vector2Int position, byte resourceId)
 		{
-			if (ResourceNodes.IsOnCooldown(position, resourceId))
+			if (ResourceSpawner.IsOnCooldown(position, resourceId))
 				return;
 
 			if (!_interactions.ContainsKey(position))
@@ -49,7 +49,7 @@ namespace Game_Server.Game
 			
 			GameManager.GameServer.Broadcast(new ResourceRemovedPacket(position));
 			
-			ResourceNodes.Add(position, resourceId);
+			ResourceSpawner.Add(position, resourceId);
 		}
 		
 	}

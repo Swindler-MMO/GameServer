@@ -12,7 +12,7 @@ namespace Swindler.GameServer.Packets.Server
 		private readonly Vector2Int _p;
 		private readonly byte _type;
 
-		public ResourceRespawnPacket(ResourceNodeData d) : base(PACKET_ID)
+		public ResourceRespawnPacket(ResourceNode d) : base(PACKET_ID)
 		{
 			_p = d.Position;
 			_type = d.ResourceType;

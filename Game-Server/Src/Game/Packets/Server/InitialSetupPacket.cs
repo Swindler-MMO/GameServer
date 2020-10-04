@@ -36,12 +36,19 @@ namespace Swindler.GameServer.Packets.Server
 				w.Put(p.Position);
 
 			}
-			
-			var nodes = ResourceNodes.List();
-			w.Put(nodes.Length);
-			foreach (ResourceNodeData node in nodes)
+
+			if (ResourceSpawner.HasNodes())
 			{
-				w.Put(node.Position);
+				var nodes = ResourceSpawner.List();
+				w.Put(nodes.Length);
+				foreach (ResourceNode node in nodes)
+				{
+					w.Put(node.Position);
+				}
+			}
+			else
+			{
+				w.Put(0);
 			}
 		}
 	}

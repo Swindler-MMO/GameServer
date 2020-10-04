@@ -31,7 +31,7 @@ namespace Swindler.GameServer
 		
 		public void Update()
 		{
-			ResourceNodes.Update();
+			ResourceSpawner.Update();
 			SendSnapshot();
 		}
 
