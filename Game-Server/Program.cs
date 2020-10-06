@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using Swindler.GameServer.Structures;
 using Swindler.Utilities;
 
@@ -18,11 +19,16 @@ namespace Swindler.GameServer
 
 		private static void LoadConfig()
 		{
-			ConfigView view = HttpUtils.Get<ConfigView>("http://swindler.thebad.xyz/config/server").Result;
+			ConfigData view = HttpUtils.Get<ConfigData>("http://swindler.thebad.xyz/configs/server").Result;
 			
-			Config.FromView(view);
+			Config.FromView(view.Config);
 		}
 		
+	}
+
+	public class ConfigData
+	{
+		[JsonProperty("config")] public ConfigView Config { get; set; }
 	}
 
 	public class ConfigView
